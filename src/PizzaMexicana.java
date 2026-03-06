@@ -1,3 +1,3 @@
-public class PizzaMexicana {
+public class PizzaMexicana extends Pizza{
     
 }

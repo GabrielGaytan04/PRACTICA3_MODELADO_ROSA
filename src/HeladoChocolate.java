@@ -1,3 +1,3 @@
-public class HeladoChocolate {
+public class HeladoChocolate implements Helado{
     
 }

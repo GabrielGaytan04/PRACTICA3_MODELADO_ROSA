@@ -1,3 +1,3 @@
-public class DecoradorMalvaviscos {
+public class DecoradorMalvaviscos extends DecoradorIngredientes{
     
 }

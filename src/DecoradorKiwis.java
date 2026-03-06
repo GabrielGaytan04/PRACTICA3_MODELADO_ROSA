@@ -1,3 +1,3 @@
-public class DecoradorKiwis {
+public class DecoradorKiwis extends DecoradorIngredientes{
     
 }

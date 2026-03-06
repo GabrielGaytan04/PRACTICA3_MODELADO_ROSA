@@ -1,3 +1,3 @@
-public class DecoradorChispas {
+public class DecoradorChispas extends DecoradorIngredientes{
     
 }

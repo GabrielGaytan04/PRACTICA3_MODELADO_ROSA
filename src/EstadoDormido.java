@@ -1,3 +1,3 @@
-public class EstadoDormido {
+public class EstadoDormido implements EstadoRobot{
     
 }
