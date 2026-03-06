@@ -1,4 +1,4 @@
-public abstract class Pizza {
+public abstract class Pizza implements Producto{
     private final String idProducto;
     private final String nombre;
     private final String descripcion;
