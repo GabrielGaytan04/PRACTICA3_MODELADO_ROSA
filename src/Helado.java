@@ -1,4 +1,4 @@
-public interface Helado implements Producto {
+public interface Helado extends Producto {
     String getNombre();
     double getPrecio();
     String getDescripcion();
