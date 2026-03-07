@@ -32,7 +32,7 @@ public class EstadoDormido implements EstadoRobot{
      * 
      * @param p el producto que se desea ordenar.
      */
-    @Override public void ordenar(Producto p){
+    @Override public void ordenar(Producto producto){
         System.out.println("ZZZ... Robotcin está durmiendo. Primero debes llamarlo");
     }
 
