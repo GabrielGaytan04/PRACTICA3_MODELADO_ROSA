@@ -35,11 +35,11 @@ public class EstadoTomandoOrden implements EstadoRobot{
      * 
      * @param p el producto que se desea agregar a la orden.
      */
-    @Override public void ordenar(Producto p){
+    @Override public void ordenar(Producto producto){
         robot.actualizarEstado(robot.getTomandoOrden());
-        robot.agregarProducto(p);
+        robot.agregarProducto(producto);
         System.out.println("Robotcin ya está tomando tu orden" + "\n" 
-        + "Has añadido: " + p.getNombre() + " a tu orden.");
+        + "Has añadido: " + producto.getNombre() + " a tu orden.");
     }
 
     /**
