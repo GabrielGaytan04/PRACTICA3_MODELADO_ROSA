@@ -9,6 +9,11 @@ public class HeladoVainilla implements Helado{
     }
 
     @Override
+    public String getNombre(){
+        return "Helado de vainilla";
+    }
+
+    @Override
     public double getPrecio() { 
         return precio; 
     }
