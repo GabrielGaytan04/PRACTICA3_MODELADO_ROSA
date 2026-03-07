@@ -30,13 +30,13 @@ public class Robot{
     /** Lista de productos que conforman la orden actual. */
     private List<Producto> orden = new ArrayList<>();
 
-    /**
+    /**r
      * Agrega un producto a la orden actual.
      *
      * @param p el producto que se desea agregar.
      */
-    public void agregarProducto(Producto p){
-        orden.add(p);
+    public void agregarProducto(Producto producto){
+        orden.add(producto);
     }
 
     /**
@@ -130,8 +130,8 @@ public class Robot{
      *
      * @param p el producto que se desea ordenar.
      */
-    public void pedir(Producto p){
-        estado.ordenar(p);
+    public void pedir(Producto producto){
+        estado.ordenar(producto);
     }
 
     /**
