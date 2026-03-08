@@ -88,13 +88,14 @@ public abstract class Pizza implements Producto{
      * PREPARAR MASA
      **/
     protected void prepararMasa(){
-
+	System.out.println("\nNecesitamos algo de agua y harina..." + "\nYa tenemos los ingredientes, hora de mezclaros!");
     }
 
     /**
      * APLANAR MASA
      **/
     protected void aplanarMasa(){
+	System.out.println("\nToca aplanar nuestra masa..." + "\n *Canta vale mas un buen amor mientras trabaja*");
 
     }
 
@@ -102,6 +103,8 @@ public abstract class Pizza implements Producto{
     * COLOCAR SALSA
     **/
     protected void colocarSalsa(){
+
+	System.out.println("\nColocamos la salsa de tomate...");
 
     }
 
@@ -115,11 +118,13 @@ public abstract class Pizza implements Producto{
      * COLOCAR ESPECIAS
      **/
     protected void colocarEspecias(){
+	System.out.println("Algunas hierbas a la italiana nunca estan de mas....");
 
     }
 
    /**
     * COLOCAR PROTEINA 
+    * Metodo abstracto del cual se encargaran de implementar las clases que hereden.
     **/
     protected abstract void colocarProteina();
 
@@ -127,6 +132,7 @@ public abstract class Pizza implements Producto{
      * METER AL HORNO
      **/
     protected void meterAlHorno(){
+	System.out.println("No importa si metemos la pizza a un horno sucio?" + "\nNah...La pizza se mete al horno.");
 
     }
 
@@ -135,6 +141,16 @@ public abstract class Pizza implements Producto{
      **/
     protected void esperar(){
 
+       /**
+        * Este es el unico metodo en el que convendria un poco mas de contenido.  
+        * Imprimir un par de veces el mensaje no es tan costoso.Podriamos parar el programa  
+        * usando sleep, pero involucaria mas escritura que dificultaria la lectura del codigo
+        **/
+	System.out.println("\n Y ahora la parte mas desesperante, ESPERAR. :(");
+	for(int i = 0; i <10; i++){
+            System.out.println("Esperando....");
+        }
+
     }
 
    /**
@@ -142,16 +158,19 @@ public abstract class Pizza implements Producto{
     **/
     protected void sacarDelHorno(){
 
+	System.out.println("\nPerfecto! La pizza esta a la temperatura ideal. Ya podemos sacarla.");
+
     }
 
    /**
     * EMPAQUETAR
     **/
     protected void empaquetar(){
+	
+	System.out.println("\nUna pizza ha nacido y ahora debe ser empaquetada." + "\n La pizza ha sido empaquetada correctamente");
 
     }
 
-	
     /**
      * METODOS DE ACCESO 
      * Esta seccion del codigo esta dedicada a recuperar aquellos datos que nos interesen 
