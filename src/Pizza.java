@@ -146,7 +146,7 @@ public abstract class Pizza implements Producto{
         * Imprimir un par de veces el mensaje no es tan costoso.Podriamos parar el programa  
         * usando sleep, pero involucaria mas escritura que dificultaria la lectura del codigo
         **/
-	System.out.println("\n Y ahora la parte mas desesperante, ESPERAR. :(");
+	System.out.println("\nY ahora la parte mas desesperante, ESPERAR. :(");
 	for(int i = 0; i <10; i++){
             System.out.println("Esperando....");
         }
@@ -167,7 +167,7 @@ public abstract class Pizza implements Producto{
     **/
     protected void empaquetar(){
 	
-	System.out.println("\nUna pizza ha nacido y ahora debe ser empaquetada." + "\n La pizza ha sido empaquetada correctamente");
+	System.out.println("\nUna pizza ha nacido y ahora debe ser empaquetada.");
 
     }
 
