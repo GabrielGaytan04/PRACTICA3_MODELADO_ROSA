@@ -34,6 +34,7 @@ public class EstadoDormido implements EstadoRobot{
      */
     @Override public void ordenar(Producto producto){
         System.out.println("ZZZ... Robotcin está durmiendo. Primero debes llamarlo");
+        robot.actualizarEstado(robot.getDormido());
     }
 
     /**
@@ -49,7 +50,7 @@ public class EstadoDormido implements EstadoRobot{
      * el robot está dormido.
      */
     @Override public void cancelar(){
-        System.out.println("No hay ninguna orden que cancelar. Robotcin está durmiendo.");
+        System.out.println("No hay ninguna orden que cancelar. Robotcin está durmiendo. Para pedir algo primero debes llamarlo");
     }
     
     /**

@@ -24,7 +24,7 @@ public class EstadoTomandoOrden implements EstadoRobot{
      * para tomar la orden.
      */
     @Override public void llamar(){
-        System.out.println("Ya llamaste a Robotcin.");
+        System.out.println("Ya llamaste a Robotcin. Está listo para tomar tu orden.");
     }
 
      /**
@@ -33,10 +33,9 @@ public class EstadoTomandoOrden implements EstadoRobot{
      * El robot permanece en el estado de tomar orden mientras
      * se sigan agregando productos.
      * 
-     * @param p el producto que se desea agregar a la orden.
+     * @param producto el producto que se desea agregar a la orden.
      */
     @Override public void ordenar(Producto producto){
-        robot.actualizarEstado(robot.getTomandoOrden());
         robot.agregarProducto(producto);
         System.out.println("Robotcin ya está tomando tu orden" + "\n" 
         + "Has añadido: " + producto.getNombre() + " a tu orden.");

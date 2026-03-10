@@ -21,10 +21,11 @@ public class EstadoEsperando implements EstadoRobot{
     }
 
     /**
-     * Indica que el robot ya tiene la orden lista para entregar.
+     * Indica que el robot aún no tiene la orden lista para entregar. 
+     * Debe esperar.
      */
     @Override public void llamar(){
-        System.out.println("Robotcin ya tiene tu orden lista para entregar.");
+        System.out.println("Robotcin ya tiene tu orden lista. Debes recojerla.");
     }
 
     /**
@@ -44,7 +45,7 @@ public class EstadoEsperando implements EstadoRobot{
      */
     @Override public void confirmar(){
         System.out.println("Robotcin ya tiene tu orden lista para entregar. "
-        + "Si quieres otra cosa debes esperar a que termine totalmente.");
+        + "Si quieres otra cosa debes recojerla.");
     }
 
     /**
@@ -52,18 +53,15 @@ public class EstadoEsperando implements EstadoRobot{
      * fue preparada.
      */
     @Override public void cancelar(){
-        System.out.println("No hay ninguna orden que cancelar. Robotcin ya tiene lista tu orden.");
-        robot.cancelarOrden();
-        robot.actualizarEstado(robot.getDormido());
+        System.out.println("No hay ninguna orden que cancelar. Robotcin ya está trabajando tu orden.");
     }
     
     /**
-     * Entrega la orden al cliente. Después de la entrega se limpia
-     * la orden actual y el robot vuelve al estado Dormido.
+     * Indica que su orden ya se le será entregada.
      */
     @Override public void entregar(){
-        robot.cancelarOrden();
-        robot.actualizarEstado(robot.getDormido()); // para limpiar
+        System.out.println("Ya vamos a entregarte tu oden.");
+        robot.actualizarEstado(robot.getListo());
     }
 
 }

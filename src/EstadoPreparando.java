@@ -34,7 +34,7 @@ public class EstadoPreparando implements EstadoRobot{
      *
      * @param p el producto que se desea ordenar.
      */
-    @Override public void ordenar(Producto p){
+    @Override public void ordenar(Producto producto){
         System.out.println("Robotcin está ocupado preparando tu orden. Debes esperar para pedir otra cosa.");
     }
 
@@ -43,7 +43,7 @@ public class EstadoPreparando implements EstadoRobot{
      * en proceso de preparación.
      */
     @Override public void confirmar(){
-        System.out.println("Robotcin está ocupado preparando tu orden. Debes esperar para pedir otra cosa.");
+        System.out.println("Robotcin está ocupado preparando tu orden. Debes esperar a que termine para pedir otra cosa.");
     }
 
     /**
@@ -53,6 +53,7 @@ public class EstadoPreparando implements EstadoRobot{
     @Override public void cancelar(){
         System.out.println("Lástima que hayas cancelado.");
         robot.cancelarOrden();
+        robot.actualizarEstado(robot.getDormido());
     }
     
     /**
@@ -60,7 +61,8 @@ public class EstadoPreparando implements EstadoRobot{
      * y todavía no está lista para entregarse.
      */
     @Override public void entregar(){
-        System.out.println("Ya falta poco, Robotcin está preparando tu orden.");
+        System.out.println("Ya falta poco, Robotcin está preparando la orden.");
+        robot.actualizarEstado(robot.getEsperando());
     }
 
 }

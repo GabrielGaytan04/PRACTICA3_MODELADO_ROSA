@@ -27,10 +27,13 @@ public class Robot{
     /** Estado en el que el robot espera para entregar la orden. */
     private EstadoRobot esperando;
 
+    /** Estado en el que el cliente recibe la orden. */
+    private EstadoRobot listo;
+
     /** Lista de productos que conforman la orden actual. */
     private List<Producto> orden = new ArrayList<>();
 
-    /**r
+    /**
      * Agrega un producto a la orden actual.
      *
      * @param p el producto que se desea agregar.
@@ -64,6 +67,7 @@ public class Robot{
         this.tomandoOrden = new EstadoTomandoOrden(this);
         this.preparando = new EstadoPreparando(this);
         this.esperando = new EstadoEsperando(this);
+        this.listo = new EstadoListo(this);
         this.estado = dormido; 
     }
 
@@ -114,6 +118,14 @@ public class Robot{
         return esperando;
     }
 
+    /* * Regresa el estado en el que el robot está entregando la orden.
+     *
+     * @return el estado Esperando.
+     */
+    public EstadoRobot getListo(){
+        return listo;
+    }
+
     // para el cliente
 
     /**
@@ -155,7 +167,7 @@ public class Robot{
      * La acción depende del estado actual del robot.
      */
     public void entregar(){
-        esperando.entregar();
+        estado.entregar();
     }
 
 }
