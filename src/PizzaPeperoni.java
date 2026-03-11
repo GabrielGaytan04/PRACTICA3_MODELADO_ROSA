@@ -11,7 +11,7 @@ public class PizzaPeperoni extends Pizza{
     **/
 
     public PizzaPeperoni(String tipoMasa){
-        super("3", "Pizza Peperoni", "Pizza con peperoni, pos si vdd", 100.00, false, tipoMasa);
+        super("3", "Pizza Peperoni", "Pizza con peperoni, pos si vdd", 100.00, tipoMasa);
     }
 
     @Override

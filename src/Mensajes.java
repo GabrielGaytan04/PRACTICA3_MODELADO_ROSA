@@ -1,75 +1,161 @@
- /**
-  * Clase encargada de guardar mensajes que podamos ocupar
-  * en la aplicación
-  **/
-
+/**
+ * Clase encargada de guardar mensajes que podamos ocupar
+ * en la aplicación
+ */
 public class Mensajes {
 
-    /** Saludo **/
-    public String saludo(){
-
-        return "\n------------------------------------------------------------"+
-        "\nBIENVENID@ AL" +
-        "\nPEQUEÑO CESARIN!!!!" +
-        "\n¿List@ para ordenar?";
-    }
-
-    /** Despedida **/
-    public String despedida(){
-
-        return "\n--------------------------------------------------------"+
-        "\nGRACIAS POR VENIR AL..." +
-        "\nPEQUEÑO CESARIN!!!!" +
-        "\n¡Vuelve pronto! PIZZA PIZZA";
-    }
-
-    /** Menu de opciones por alimento **/
-    public String menuGeneral(){
-      return "\n------------------------------------------------------------" +
-      "\n¿QUÉ DESEA ORDENAR HOY?" +
-      "\n1.PIZZA" +
-      "\n2.HELADO" +
-      "\n3.PIZZA Y HELADO" +
-      "\n4.SALIR" ;
+    /**
+     * Muestra el saludo al cliente.
+     */
+    public static void saludo() {
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("BIENVENID@ AL");
+        System.out.println("PEQUEÑO CESARIN!!!!");
+        System.out.println("¿List@ para ordenar?");
     }
 
     /**
-     * SUB-MENÚS 
-     * Considerando que el usuario va a tener un numero limitado de opciones, 
-     * conviene separar las opciones disponibles para cada alimento. 
-     **/
-
-     /**Menú de pizzas **/
-    public String menuPizzas(){
-        return "\n--------------------------------------------------------------" + 
-        "\n¡PIZZAS!"+
-        "\n1.PEPPERONI" +
-        "\n2.HAWAIANA" +
-        "\n3.MEXICANA" +
-        "\n4.SARDINAS" +
-        "\n5.SOYA"; 
-      
+     * Muestra la despedida al cliente.
+     */
+    public static void despedida() {
+        System.out.println("\n--------------------------------------------------------");
+        System.out.println("GRACIAS POR VENIR AL...");
+        System.out.println("PEQUEÑO CESARIN!!!!");
+        System.out.println("¡Vuelve pronto! PIZZA PIZZA");
     }
 
-    /** Menú de helados**/
-    public String saboresHelado(){
-        return "\n--------------------------------------------------------------" + 
-        "\n¡HELADOS!"+
-        "\n1.VAINILLA" +
-        "\n2.CHOCOLATE" +
-        "\n3.FRESA"; 
+    /**
+     * Muestra el menú de opciones principales.
+     */
+    public static void menuOpciones() {
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("¿QUÉ DESEA HACER?");
+        System.out.println("1. LLAMAR AL ROBOT");
+        System.out.println("2. REALIZAR UNA ORDEN");
+        System.out.println("3. CONFIRMAR ORDEN");
+        System.out.println("4. CANCELAR ORDEN");
+        System.out.println("5. RECIBIR SU ORDEN");
+        System.out.println("6. SALIR");
     }
 
-    /** Opciones de cobertura**/
-    public String coberturasHelado(){
-        return "\n--------------------------------------------------------------" + 
-        "\n¡DECORA TU HELADO!"+
-        "\n1.ARITOS" +
-        "\n2.CHISPAS" +
-        "\n3.GUSANOS" +
-        "\n4.KIWIS" +
-        "\n5.MALVAVISCOS" +
-        "\n6.MANGUITOS" +
-        "\n7.PANDITAS" ; 
+    /**
+     * Muestra el menú de opciones por alimento.
+     */
+    public static void menuProductos() {
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("¿QUÉ DESEA ORDENAR HOY?");
+        System.out.println("1. SOLO PIZZA");
+        System.out.println("2. SOLO HELADO");
+        System.out.println("3. PIZZA Y HELADO");
+        System.out.println("4. SALIR");
+    }
+
+    /**
+     * Muestra el selector de preferencia vegetariana.
+     */
+    public static void selectorVegetariana() {
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("¿DESEA UNA PIZZA VEGETARIANA?");
+        System.out.println("1. SÍ");
+        System.out.println("2. NO");
+    }
+
+    /**
+     * Muestra el menú de pizzas no vegetarianas disponibles.
+     */
+    public static void menuPizzas() {
+        System.out.println("\n--------------------------------------------------------------");
+        System.out.println("¡CONTAMOS CON LA SIGUIENTE VARIEDAD DE PIZZAS!");
+        System.out.println("1. PEPPERONI");
+        System.out.println("2. MEXICANA");
+        System.out.println("3. SARDINAS");
+    }
+
+    /**
+     * Muestra el menú de pizzas vegetarianas disponibles.
+     */
+    public static void menuPizzasVegetarianas() {
+        System.out.println("\n--------------------------------------------------------------");
+        System.out.println("¡CONTAMOS CON LAS SIGUIENTES OPCIONES VEGETARIANAS!");
+        System.out.println("1. SOYA");
+        System.out.println("2. FRIJOLES");
+    }
+
+    /**
+     * Muestra el menú de tipos de masa disponibles.
+     */
+    public static void menuMasas() {
+        System.out.println("\n--------------------------------------------------------------");
+        System.out.println("TU PIZZA PUEDE TENER LAS SIGUIENTES MASAS:");
+        System.out.println("1. NAPOLITANA");
+        System.out.println("2. ROMANA");
+        System.out.println("3. AMERICANA");
+    }
+
+    /**
+     * Muestra el menú de sabores de helado disponibles.
+     */
+    public static void menuSaboresHelado() {
+        System.out.println("\n--------------------------------------------------------------");
+        System.out.println("¡CONTAMOS CON LOS SIGUIENTES SABORES DE HELADO!");
+        System.out.println("1. FRESA");
+        System.out.println("2. VAINILLA");
+        System.out.println("3. CHOCOLATE");
+    }
+
+    /**
+     * Muestra el menú de toppings disponibles para el helado.
+     */
+    public static void menuToppings() {
+        System.out.println("\n--------------------------------------------------------------");
+        System.out.println("SELECCIONA TUS TOPPINGS (MÁXIMO 3 DE CADA UNO)");
+        System.out.println("1. GOMITAS DE GUSANO");
+        System.out.println("2. GOMITAS DE PANDA");
+        System.out.println("3. GOMITAS DE ARO");
+        System.out.println("4. CHISPAS DE CHOCOLATE");
+        System.out.println("5. MALVAVISCOS");
+        System.out.println("6. FRESITAS");
+        System.out.println("7. MANGUITOS");
+        System.out.println("8. KIWIS");
+        System.out.println("0. TERMINAR DE AGREGAR");
+    }
+
+    /**
+     * Genera e imprime el ticket de la orden actual.
+     * @param pizza Pizza de la orden, puede ser null.
+     * @param helado Helado de la orden, puede ser null.
+     */
+    public static void mostrarTicket(Pizza pizza, Helado helado) {
+        System.out.println("==========================================");
+        System.out.println("               TICKET                    ");
+        System.out.println("==========================================");
+        if (pizza != null) {
+            System.out.println("  Pizza: " + pizza.getNombre());
+            System.out.println("  Precio: $" + pizza.getPrecio());
+        }
+        if (helado != null) {
+            System.out.println("  Helado: " + helado.getDescripcion());
+            System.out.println("  Precio: $" + helado.getPrecio());
+        }
+        double total = (pizza != null ? pizza.getPrecio() : 0.0) +
+                       (helado != null ? helado.getPrecio() : 0.0);
+        System.out.println("==========================================");
+        System.out.println("  Total: $" + total);
+        System.out.println("==========================================");
+    }
+
+    /**
+     * Limpia la pantalla de la consola.
+     */
+    public static void limpiarPantalla() {
+        try {
+        if (System.getProperty("os.name").contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            new ProcessBuilder("clear").inheritIO().start().waitFor();
+        }
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
     }
 }

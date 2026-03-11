@@ -21,15 +21,6 @@ public class HeladoFresa implements Helado{
         this.precio = 0;
     }
     
-    /**
-     * Regresa el nombre del helado.
-     *
-     * @return el nombre del producto.
-     */
-    @Override
-    public String getNombre(){
-        return "Helado de fresa";
-    }
 
     /**
      * Regresa el precio del helado.

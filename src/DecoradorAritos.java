@@ -21,23 +21,13 @@ public class DecoradorAritos extends DecoradorHelado{
     }
 
     /**
-     * Regresa el nombre del decorado.
-     *
-     * @return el nombre del decorador.
-     */
-    @Override
-    public String getNombre(){
-        return "Decorado de aritos";
-    }
-
-    /**
      * Regresa el precio del helado con el decorado agregado.
      *
      * @return el precio total del helado.
      */
     @Override
     public double getPrecio() { 
-        return helado.getPrecio() + 0; 
+        return helado.getPrecio() + 999.99; 
     }
 
     /**

@@ -6,14 +6,8 @@
  * implementen esta interfaz deben proporcionar información sobre
  * el nombre, descripción y precio del helado.
  */
-public interface Helado extends Producto {
+public interface Helado {
 
-    /**
-     * Regresa el nombre del helado.
-     *
-     * @return el nombre del helado.
-     */
-    String getNombre();
 
     /**
      * Regresa el precio del helado.

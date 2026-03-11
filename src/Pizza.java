@@ -3,7 +3,7 @@
  * implementa  a la interfaz Producto.
  **/
 
-public abstract class Pizza implements Producto{
+public abstract class Pizza{
 
     /**
      * Variables de clase.
@@ -18,8 +18,7 @@ public abstract class Pizza implements Producto{
     private final String idProducto;
     private final String nombre;
     private final String descripcion;
-    private final double precio;
-    private final boolean esVegetariana;
+    private final double precioBase;
     private final String tipoMasa;
 
    /**
@@ -28,12 +27,11 @@ public abstract class Pizza implements Producto{
     * recibira como parametros el mismo numero de atributos que definimos.
     **/
 
-    public Pizza(String idProducto, String nombre, String descripcion, double precio, boolean esVegetariana,String tipoMasa){
+    public Pizza(String idProducto, String nombre, String descripcion, double precioBase,String tipoMasa){
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio = precio;
-        this.esVegetariana = esVegetariana;
+        this.precioBase = precioBase;
         this.tipoMasa = tipoMasa;
     }
 
@@ -206,16 +204,8 @@ public abstract class Pizza implements Producto{
      * Devuelve un numero de tipo double 
      **/
 
-    public double getPrecio(){
-        return precio;
-    }
-
-   /**
-    * Devuelve un booleano 
-    **/
-
-    public boolean getEsVegetariana(){
-        return esVegetariana;
+    public double getPrecioBase(){
+        return precioBase;
     }
 
    /**
@@ -225,4 +215,26 @@ public abstract class Pizza implements Producto{
     public String getTipoMasa(){
         return tipoMasa;
     }
+
+    /**
+    * Devuelve un booleano 
+    **/
+
+    public boolean esVegetariana(){
+        return false;
+    }
+
+
+    public double getPrecio() {
+    return precioBase + getCostoMasa();
+}
+
+    private double getCostoMasa() {
+        switch (tipoMasa) {
+            case "napolitana": return 100.0;
+            case "romana": return 175.0;
+            case "americana": return 220.0;
+            default: return 0.0;
+    }
+}
 }

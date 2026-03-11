@@ -16,13 +16,10 @@ public interface EstadoRobot {
      */
     void llamar();
 
-    /**
-     * Agrega un producto a la orden del cliente.
-     * El comportamiento depende del estado actual del robot.
-     *
-     * @param producto el producto que se desea agregar a la orden.
-     */
-    void ordenar(Producto producto);
+    void ordenarPizza(Pizza pizza);
+
+    void ordenarHelado(Helado helado);
+
 
     /**
      * Confirma la orden actual del cliente.
@@ -35,6 +32,8 @@ public interface EstadoRobot {
      * El comportamiento depende del estado actual del robot.
      */
     void cancelar();
+
+    void prepararOrden();
 
     /**
      * Entrega la orden al cliente.

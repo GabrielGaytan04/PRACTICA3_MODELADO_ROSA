@@ -27,18 +27,16 @@ public class EstadoTomandoOrden implements EstadoRobot{
         System.out.println("Ya llamaste a Robotcin. Está listo para tomar tu orden.");
     }
 
-     /**
-     * Agrega un producto a la orden actual.
-     * 
-     * El robot permanece en el estado de tomar orden mientras
-     * se sigan agregando productos.
-     * 
-     * @param producto el producto que se desea agregar a la orden.
-     */
-    @Override public void ordenar(Producto producto){
-        robot.agregarProducto(producto);
-        System.out.println("Robotcin ya está tomando tu orden" + "\n" 
-        + "Has añadido: " + producto.getNombre() + " a tu orden.");
+    @Override
+    public void ordenarPizza(Pizza pizza){
+        robot.setPizza(pizza);
+        System.out.println("Pizza agregada a la orden: " + pizza.getNombre());
+    }
+
+    @Override
+    public void ordenarHelado(Helado helado){
+        robot.setHelado(helado);
+        System.out.println("Helado agregado a la orden: " + helado.getDescripcion());
     }
 
     /**
@@ -46,7 +44,9 @@ public class EstadoTomandoOrden implements EstadoRobot{
      * al estado de preparación del producto.
      */
     @Override public void confirmar(){
+        System.out.println("Orden confirmada, preparando...");
         robot.actualizarEstado(robot.getPreparando());
+        robot.prepararOrden();
     }
     
     /**
@@ -54,9 +54,17 @@ public class EstadoTomandoOrden implements EstadoRobot{
      * ya que primero debe terminarse de agregar productos.
      */
     @Override public void cancelar(){
-        System.out.println("No hay ninguna orden que cancelar. Primero debes terminar de ordenar.");
+        System.out.println("Orden cancelada, Robotcin ya se fue a su camita.");
+        robot.setPizza(null);
+        robot.setHelado(null);
+        robot.actualizarEstado(robot.getDormido());
     }
     
+    @Override
+    public void prepararOrden(){
+        System.out.println("Debe confirmar la orden primero.");
+    }
+
     /**
      * Indica que no hay ninguna orden lista para entregar,
      * ya que el pedido aún se está realizando.

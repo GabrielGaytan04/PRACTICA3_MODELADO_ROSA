@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Representa al robot que atiende las órdenes de los clientes.
@@ -27,38 +25,13 @@ public class Robot{
     /** Estado en el que el robot espera para entregar la orden. */
     private EstadoRobot esperando;
 
-    /** Estado en el que el cliente recibe la orden. */
-    private EstadoRobot listo;
+     /** Pizza de la orden actual. */
+    private Pizza pizza;
 
-    /** Lista de productos que conforman la orden actual. */
-    private List<Producto> orden = new ArrayList<>();
-
-    /**
-     * Agrega un producto a la orden actual.
-     *
-     * @param p el producto que se desea agregar.
-     */
-    public void agregarProducto(Producto producto){
-        orden.add(producto);
-    }
+    /** Helado de la orden actual. */
+    private Helado helado;
 
     /**
-     * Regresa la lista de productos de la orden actual.
-     *
-     * @return la lista de productos ordenados.
-     */
-    public List<Producto> getOrden(){
-        return orden;
-    }
-
-    /**
-     * Cancela la orden actual eliminando todos los productos.
-     */
-    public void cancelarOrden(){
-        orden.clear();
-    }
-
-     /**
      * Construye un nuevo robot e inicializa todos sus estados.
      * El robot comienza en el estado Dormido.
      */
@@ -67,10 +40,9 @@ public class Robot{
         this.tomandoOrden = new EstadoTomandoOrden(this);
         this.preparando = new EstadoPreparando(this);
         this.esperando = new EstadoEsperando(this);
-        this.listo = new EstadoListo(this);
         this.estado = dormido; 
     }
-
+ 
     /**
      * Actualiza el estado actual del robot.
      *
@@ -81,6 +53,10 @@ public class Robot{
     }
 
     // getters
+
+    public EstadoRobot getEstado() {
+        return estado;
+    }
 
     /**
      * Regresa el estado Dormido del robot.
@@ -118,32 +94,61 @@ public class Robot{
         return esperando;
     }
 
-    /* * Regresa el estado en el que el robot está entregando la orden.
-     *
-     * @return el estado Esperando.
+
+    /**
+     * Obtiene la pizza de la orden actual.
+     * @return pizza
      */
-    public EstadoRobot getListo(){
-        return listo;
+    public Pizza getPizza() { 
+        return pizza; 
     }
 
-    // para el cliente
+    /**
+     * Establece la pizza de la orden actual.
+     * @param pizza Pizza a establecer.
+     */
+    public void setPizza(Pizza pizza) { 
+        this.pizza = pizza; 
+    }
+
+    /**
+     * Obtiene el helado de la orden actual.
+     * @return helado
+     */
+    public Helado getHelado() { 
+        return helado; 
+    }
+
+    /**
+     * Establece el helado de la orden actual.
+     * @param helado Helado a establecer.
+     */
+    public void setHelado(Helado helado) { 
+        this.helado = helado; 
+    }
 
     /**
      * Permite al cliente llamar al robot.
      * La acción real depende del estado actual.
      */
-    public void iniciarLlamada(){
+    public void llamar(){
         estado.llamar();
     }
 
     /**
-     * Permite al cliente pedir un producto.
-     * La acción depende del estado actual del robot.
-     *
-     * @param p el producto que se desea ordenar.
+     * Ordena una pizza.
+     * @param pizza Pizza a ordenar.
      */
-    public void pedir(Producto producto){
-        estado.ordenar(producto);
+    public void ordenarPizza(Pizza pizza) { 
+        estado.ordenarPizza(pizza); 
+    }
+
+    /**
+     * Ordena un helado.
+     * @param helado Helado a ordenar.
+     */
+    public void ordenarHelado(Helado helado) { 
+        estado.ordenarHelado(helado); 
     }
 
     /**
@@ -160,6 +165,11 @@ public class Robot{
      */
     public void confirmar(){
         estado.confirmar();
+    }
+
+    /** Prepara la orden. */
+    public void prepararOrden() { 
+        estado.prepararOrden(); 
     }
 
     /**

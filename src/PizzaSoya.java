@@ -13,7 +13,7 @@ public class PizzaSoya extends Pizza{
 
     public PizzaSoya(String tipoMasa){
 	//NOTA: En esta pizza, el valor booleano debe ser true. 
-        super("5", "Pizza Soya", "Pizza con soya texturizada", 250.00, true, tipoMasa);
+        super("5", "Pizza Soya", "Pizza con soya texturizada", 250.00, tipoMasa);
     }
 
     @Override
@@ -26,5 +26,10 @@ public class PizzaSoya extends Pizza{
     protected void colocarProteina() {
 	System.out.println("Colocando soya texturizada....Cada paquete de soya vale un dia de mi salario....");
         
+    }
+
+    @Override
+    public boolean esVegetariana() {
+        return true;
     }
 }

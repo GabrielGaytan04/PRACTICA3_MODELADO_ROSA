@@ -19,15 +19,6 @@ public class DecoradorGusanitos extends DecoradorHelado{
         super(helado);
     }
     
-    /**
-     * Regresa el nombre del decorado.
-     *
-     * @return el nombre del decorador.
-     */
-    @Override
-    public String getNombre(){
-        return "Decorado de gusanitos";
-    }
 
     /**
      * Regresa el precio del helado con el decorado agregado.
@@ -36,7 +27,7 @@ public class DecoradorGusanitos extends DecoradorHelado{
      */
     @Override
     public double getPrecio() { 
-        return helado.getPrecio() + 0; 
+        return helado.getPrecio() + 25.0; 
     }
 
     /**

@@ -28,14 +28,14 @@ public class EstadoPreparando implements EstadoRobot{
         System.out.println("Robotcin está ocupado preparando tu orden. Paciencia, no son enchiladas.");
     }
 
-    /**
-     * Indica que no es posible agregar más productos mientras
-     * la orden está siendo preparada.
-     *
-     * @param p el producto que se desea ordenar.
-     */
-    @Override public void ordenar(Producto producto){
-        System.out.println("Robotcin está ocupado preparando tu orden. Debes esperar para pedir otra cosa.");
+    @Override
+    public void ordenarPizza(Pizza pizza){
+        System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
+    }
+
+    @Override
+    public void ordenarHelado(Helado helado){
+        System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
     }
 
     /**
@@ -51,18 +51,27 @@ public class EstadoPreparando implements EstadoRobot{
      * La orden se elimina del robot.
      */
     @Override public void cancelar(){
-        System.out.println("Lástima que hayas cancelado.");
-        robot.cancelarOrden();
-        robot.actualizarEstado(robot.getDormido());
+        System.out.println("Híjole mano, no puedes cancelar cuando la orden ya fue confirmada.");
     }
     
+    @Override
+    public void prepararOrden(){
+        if (robot.getPizza() != null) {
+            robot.getPizza().prepararPizza();
+        }
+        if (robot.getHelado() != null) {
+            System.out.println("Preparando helado: " + robot.getHelado().getDescripcion());
+        }
+        System.out.println("Orden preparada, esperando entrega...");
+        robot.actualizarEstado(robot.getEsperando());
+    }
+
     /**
      * Indica que la orden aún se encuentra en preparación
      * y todavía no está lista para entregarse.
      */
     @Override public void entregar(){
         System.out.println("Ya falta poco, Robotcin está preparando la orden.");
-        robot.actualizarEstado(robot.getEsperando());
     }
 
 }

@@ -12,7 +12,7 @@ public class PizzaSardinas extends Pizza{
 
     public PizzaSardinas(String tipoMasa){
 
-        super("4", "Pizza Sardinas", "Pizza con sardinas y queso oaxaca", 175.00, false, tipoMasa);
+        super("4", "Pizza Sardinas", "Pizza con sardinas y queso oaxaca", 175.00, tipoMasa);
     }
 
     @Override

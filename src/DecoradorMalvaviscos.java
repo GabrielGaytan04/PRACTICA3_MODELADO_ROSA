@@ -26,18 +26,9 @@ public class DecoradorMalvaviscos extends DecoradorHelado{
      */
     @Override
     public double getPrecio() { 
-        return helado.getPrecio() + 0; 
+        return helado.getPrecio() + 456.44; 
     }
 
-    /**
-     * Regresa el nombre del decorado.
-     *
-     * @return el nombre del decorador.
-     */
-    @Override
-    public String getNombre(){
-        return "Decorado de malvaviscos";
-    }
 
     /**
      * Regresa la descripción del helado incluyendo el decorado.

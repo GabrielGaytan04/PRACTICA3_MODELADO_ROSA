@@ -23,19 +23,20 @@ public class EstadoDormido implements EstadoRobot{
      * Despierta al robot y cambia su estado al estado de tomar orden.
      */
     @Override public void llamar(){
-        System.out.println("Robotcin ya no está durmiendo.");
+        System.out.println("Robotcin ya anda al tiro, tras ser llamado.");
         robot.actualizarEstado(robot.getTomandoOrden());
     }
-    
-    /**
-     * Indica que no se puede ordenar mientras el robot está dormido.
-     * 
-     * @param p el producto que se desea ordenar.
-     */
-    @Override public void ordenar(Producto producto){
-        System.out.println("ZZZ... Robotcin está durmiendo. Primero debes llamarlo");
-        robot.actualizarEstado(robot.getDormido());
+
+    @Override
+    public void ordenarPizza(Pizza pizza){
+        System.out.println("Robotcin está planchando oreja, debe llamarlo primero.");
     }
+
+    @Override
+    public void ordenarHelado(Helado helado){
+        System.out.println("Robotcin está haciendo la mimición, debe llamarlo primero.");
+    }
+
 
     /**
      * Indica que no hay ninguna orden que confirmar mientras el robot 
@@ -53,6 +54,11 @@ public class EstadoDormido implements EstadoRobot{
         System.out.println("No hay ninguna orden que cancelar. Robotcin está durmiendo. Para pedir algo primero debes llamarlo");
     }
     
+    @Override
+    public void prepararOrden(){
+        System.out.println("Robotcin se está echando una pestañita, debe llamarlo primero.");
+    }
+
     /**
      * Indica que no hay ninguna orden que entregar mientras
      * el robot está dormido.

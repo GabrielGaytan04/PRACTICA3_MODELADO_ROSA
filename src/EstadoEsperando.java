@@ -28,24 +28,23 @@ public class EstadoEsperando implements EstadoRobot{
         System.out.println("Robotcin ya tiene tu orden lista. Debes recojerla.");
     }
 
-    /**
-     * Indica que no es posible agregar más productos, ya que la orden
-     * está lista para entregarse.
-     *
-     * @param p el producto que se desea ordenar.
-     */
-    @Override public void ordenar(Producto p){
-        System.out.println("Robotcin ya tiene tu orden lista para entregar. "
-        + "Si quieres otra cosa debes esperar a que termine totalmente.");
+    @Override
+    public void ordenarPizza(Pizza pizza){
+        System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
     }
+
+    @Override
+    public void ordenarHelado(Helado helado){
+        System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
+    }
+
     
     /**
      * Indica que la orden ya fue confirmada y está lista para entregarse,
      * por lo que no se puede confirmar nuevamente.
      */
     @Override public void confirmar(){
-        System.out.println("Robotcin ya tiene tu orden lista para entregar. "
-        + "Si quieres otra cosa debes recojerla.");
+        System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
     }
 
     /**
@@ -53,15 +52,22 @@ public class EstadoEsperando implements EstadoRobot{
      * fue preparada.
      */
     @Override public void cancelar(){
-        System.out.println("No hay ninguna orden que cancelar. Robotcin ya está trabajando tu orden.");
+        System.out.println("No se puede cancelar después de haber confirmado.");
     }
     
+    @Override
+    public void prepararOrden(){
+        System.out.println("La orden ya fue preparada, solicite la entrega.");
+    }
+
     /**
      * Indica que su orden ya se le será entregada.
      */
     @Override public void entregar(){
-        System.out.println("Ya vamos a entregarte tu oden.");
-        robot.actualizarEstado(robot.getListo());
+        System.out.println("Orden entregada, Robotcin ya se va a echarse un coyotito.");
+        robot.setPizza(null);
+        robot.setHelado(null);
+        robot.actualizarEstado(robot.getDormido());
     }
 
 }

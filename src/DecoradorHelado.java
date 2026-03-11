@@ -6,6 +6,7 @@ public abstract class DecoradorHelado implements Helado{
         this.helado = helado;
     }
 
+
     @Override
     public double getPrecio() { 
         return helado.getPrecio(); 
