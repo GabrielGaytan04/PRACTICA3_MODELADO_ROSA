@@ -77,7 +77,8 @@ public class EstadoEsperando implements EstadoRobot{
      * Indica que su orden ya se le será entregada.
      */
     @Override public void entregar(){
-        System.out.println("Orden entregada, Robotcin ya va a echarse un coyotito.");
+        System.out.println("¡Listo! Aquí tienes tu orden.... ¡Disfruta!");
+        System.out.println("Orden entregada, Robotcin va a echarse un coyotito.");
         robot.setPizza(null);
         robot.setHelado(null);
         robot.actualizarEstado(robot.getDormido());
