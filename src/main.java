@@ -1,10 +1,8 @@
-
 import java.util.Scanner;
 /**
  * Clase principal que maneja la interacción del cliente con el robot
  * de la pizzería "El Pequeño Cesarín".
  */
-
 public class Main {
 
     /**
@@ -20,28 +18,27 @@ public class Main {
 
         do {
             Mensajes.menuOpciones();
-            opcion = scanner.nextInt();
-            
+            opcion = leerEntero(scanner, 0, 5);
 
             switch (opcion) {
                 case 1:
-					Mensajes.limpiarPantalla();
+                    Mensajes.limpiarPantalla();
                     robot.llamar();
                     break;
 
                 case 2:
-					Mensajes.limpiarPantalla();
-					if (robot.getEstado() != robot.getTomandoOrden()) {
-        				System.out.println("Debes llamar al robot primero.");
-       					break;
-  				  	}
+                    Mensajes.limpiarPantalla();
+                    if (robot.getEstado() != robot.getTomandoOrden()) {
+                        System.out.println("Debes llamar al robot primero.");
+                        break;
+                    }
                     Mensajes.menuProductos();
-                    int selectorProducto = scanner.nextInt();
+                    int selectorProducto = leerEntero(scanner, 1, 3);
 
                     if (selectorProducto == 1 || selectorProducto == 3) {
-						Mensajes.limpiarPantalla();
-						Mensajes.selectorVegetariana();
-                        int selectorVegetariana = scanner.nextInt();
+                        Mensajes.limpiarPantalla();
+                        Mensajes.selectorVegetariana();
+                        int selectorVegetariana = leerEntero(scanner, 1, 2);
                         Mensajes.limpiarPantalla();
                         Pizza pizza = seleccionarPizza(scanner, selectorVegetariana);
                         if (pizza != null) {
@@ -58,37 +55,37 @@ public class Main {
                     break;
 
                 case 3:
-					Mensajes.limpiarPantalla();
-					if (robot.getEstado() != robot.getTomandoOrden()) {
-        				System.out.println("No hay ninguna orden que confirmar.");
-       					break;
-				    }
-					if (robot.getPizza() == null && robot.getHelado() == null) {
-        				System.out.println("No puedes confirmar una orden vacía, debes ordenar algo primero.");
-        				break;
-    				}
+                    Mensajes.limpiarPantalla();
+                    if (robot.getEstado() != robot.getTomandoOrden()) {
+                        System.out.println("No hay ninguna orden que confirmar.");
+                        break;
+                    }
+                    if (robot.getPizza() == null && robot.getHelado() == null) {
+                        System.out.println("No puedes confirmar una orden vacía, debes ordenar algo primero.");
+                        break;
+                    }
                     robot.confirmar();
                     break;
 
                 case 4:
-					Mensajes.limpiarPantalla();
-					if (robot.getEstado() != robot.getTomandoOrden()) {
-        				System.out.println("No hay ninguna orden que cancelar.");
-        				break;
-    				}
-					 if (robot.getPizza() == null && robot.getHelado() == null) {
-        				System.out.println("No hay ningún producto ordenado para cancelar.");
-        				break;
-    				}
+                    Mensajes.limpiarPantalla();
+                    if (robot.getEstado() != robot.getTomandoOrden()) {
+                        System.out.println("No hay ninguna orden que cancelar.");
+                        break;
+                    }
+                    if (robot.getPizza() == null && robot.getHelado() == null) {
+                        System.out.println("No hay ningún producto ordenado para cancelar.");
+                        break;
+                    }
                     robot.cancelar();
                     break;
 
                 case 5:
-					Mensajes.limpiarPantalla();
-					if (robot.getEstado() != robot.getEsperando()) {
-        				System.out.println("No hay ninguna orden lista para entregar.");
-        				break;
-   					}
+                    Mensajes.limpiarPantalla();
+                    if (robot.getEstado() != robot.getEsperando()) {
+                        System.out.println("No hay ninguna orden lista para entregar.");
+                        break;
+                    }
                     robot.entregar();
                     break;
 
@@ -96,15 +93,38 @@ public class Main {
                     break;
 
                 default:
-					Mensajes.limpiarPantalla();
+                    Mensajes.limpiarPantalla();
                     System.out.println("Opción no válida.");
             }
 
         } while (opcion != 0);
 
-		Mensajes.limpiarPantalla();
+        Mensajes.limpiarPantalla();
         Mensajes.despedida();
         scanner.close();
+    }
+
+    /**
+     * Lee un entero del scanner de forma segura dentro de un rango válido.
+     * Si la entrada no es válida, muestra un mensaje y vuelve a pedir.
+     * @param scanner Scanner para leer la entrada.
+     * @param min Valor mínimo aceptado.
+     * @param max Valor máximo aceptado.
+     * @return el entero leído dentro del rango válido.
+     */
+    private static int leerEntero(Scanner scanner, int min, int max) {
+        while (true) {
+            try {
+                int valor = scanner.nextInt();
+                if (valor >= min && valor <= max) {
+                    return valor;
+                }
+                System.out.println("Opción no válida, ingresa un número entre " + min + " y " + max + ".");
+            } catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("Opción no válida, ingresa un número.");
+            }
+        }
     }
 
     /**
@@ -114,9 +134,9 @@ public class Main {
      * @return Pizza seleccionada por el cliente.
      */
     private static Pizza seleccionarPizza(Scanner scanner, int selectorVegetariana) {
-		Mensajes.limpiarPantalla();
-		Mensajes.menuMasas();
-        int opcionMasa = scanner.nextInt();
+        Mensajes.limpiarPantalla();
+        Mensajes.menuMasas();
+        int opcionMasa = leerEntero(scanner, 1, 3);
         Mensajes.limpiarPantalla();
         String tipoMasa;
 
@@ -124,35 +144,29 @@ public class Main {
             case 1: tipoMasa = "napolitana"; break;
             case 2: tipoMasa = "romana"; break;
             case 3: tipoMasa = "americana"; break;
-            default:
-                System.out.println("Opción no válida.");
-                return null;
+            default: return null;
         }
 
         if (selectorVegetariana == 1) {
-			Mensajes.limpiarPantalla();
-			Mensajes.menuPizzasVegetarianas();
-            int opcionPizza = scanner.nextInt();
+            Mensajes.limpiarPantalla();
+            Mensajes.menuPizzasVegetarianas();
+            int opcionPizza = leerEntero(scanner, 1, 2);
             Mensajes.limpiarPantalla();
             switch (opcionPizza) {
                 case 1: return new PizzaSoya(tipoMasa);
                 case 2: return new PizzaFrijoles(tipoMasa);
-                default:
-                    System.out.println("Opción no válida.");
-                    return null;
+                default: return null;
             }
         } else {
             Mensajes.limpiarPantalla();
-			Mensajes.menuPizzas();
-            int opcionPizza = scanner.nextInt();
+            Mensajes.menuPizzas();
+            int opcionPizza = leerEntero(scanner, 1, 3);
             Mensajes.limpiarPantalla();
             switch (opcionPizza) {
                 case 1: return new PizzaPeperoni(tipoMasa);
                 case 2: return new PizzaMexicana(tipoMasa);
                 case 3: return new PizzaSardinas(tipoMasa);
-                default:
-                    System.out.println("Opción no válida.");
-                    return null;
+                default: return null;
             }
         }
     }
@@ -163,9 +177,9 @@ public class Main {
      * @return Helado seleccionado y decorado por el cliente.
      */
     private static Helado seleccionarHelado(Scanner scanner) {
-		Mensajes.limpiarPantalla();
-		Mensajes.menuSaboresHelado();
-        int opcionSabor = scanner.nextInt();
+        Mensajes.limpiarPantalla();
+        Mensajes.menuSaboresHelado();
+        int opcionSabor = leerEntero(scanner, 1, 3);
         Mensajes.limpiarPantalla();
         Helado helado;
 
@@ -173,28 +187,21 @@ public class Main {
             case 1: helado = new HeladoFresa(); break;
             case 2: helado = new HeladoVainilla(); break;
             case 3: helado = new HeladoChocolate(); break;
-            default:
-                System.out.println("Opción no válida.");
-                return null;
+            default: return null;
         }
 
         int[] contadorToppings = new int[8];
         int opcionTopping;
 
         do {
-			Mensajes.limpiarPantalla();
-			Mensajes.menuToppings();
-            opcionTopping = scanner.nextInt();
+            Mensajes.limpiarPantalla();
+            Mensajes.menuToppings();
+            opcionTopping = leerEntero(scanner, 0, 8);
             Mensajes.limpiarPantalla();
 
             if (opcionTopping == 0) break;
 
             int indice = opcionTopping - 1;
-
-            if (indice < 0 || indice > 7) {
-                System.out.println("Opción no válida.");
-                continue;
-            }
 
             if (contadorToppings[indice] >= 3) {
                 System.out.println("Ya agregaste 3 de este ingrediente, elige otro.");
@@ -219,6 +226,3 @@ public class Main {
         return helado;
     }
 }
-
-
-    

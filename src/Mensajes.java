@@ -1,3 +1,5 @@
+
+
 /**
  * Clase encargada de guardar mensajes que podamos ocupar
  * en la aplicación
