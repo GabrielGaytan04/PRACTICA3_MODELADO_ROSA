@@ -153,7 +153,6 @@ public class Robot{
 
     /**
      * Permite al cliente cancelar la orden actual.
-     * La acción depende del estado actual del robot.
      */
     public void cancelar(){
         estado.cancelar();
@@ -161,7 +160,6 @@ public class Robot{
 
     /**
      * Permite al cliente confirmar la orden actual.
-     * La acción depende del estado actual del robot.
      */
     public void confirmar(){
         estado.confirmar();
@@ -174,7 +172,6 @@ public class Robot{
 
     /**
      * Permite entregarle su ordenal cliente.
-     * La acción depende del estado actual del robot.
      */
     public void entregar(){
         estado.entregar();
