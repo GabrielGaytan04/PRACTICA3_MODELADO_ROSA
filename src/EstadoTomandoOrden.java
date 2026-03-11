@@ -26,13 +26,19 @@ public class EstadoTomandoOrden implements EstadoRobot{
     @Override public void llamar(){
         System.out.println("Ya llamaste a Robotcin. Está listo para tomar tu orden.");
     }
-
+    
+    /**
+     * Indica que se agrega la pizza ordenada a la orden.
+     */
     @Override
     public void ordenarPizza(Pizza pizza){
         robot.setPizza(pizza);
         System.out.println("Pizza agregada a la orden: " + pizza.getNombre());
     }
 
+    /**
+     * Indica que se agrega el helado ordenadoo a la orden.
+     */
     @Override
     public void ordenarHelado(Helado helado){
         robot.setHelado(helado);
@@ -60,6 +66,10 @@ public class EstadoTomandoOrden implements EstadoRobot{
         robot.actualizarEstado(robot.getDormido());
     }
     
+    /**
+     * Indica que no hay ninguna orden que preparar porque primero debe
+     * confirmarla.
+     */
     @Override
     public void prepararOrden(){
         System.out.println("Debe confirmar la orden primero.");

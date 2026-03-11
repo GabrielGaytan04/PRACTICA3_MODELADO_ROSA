@@ -27,16 +27,21 @@ public class EstadoDormido implements EstadoRobot{
         robot.actualizarEstado(robot.getTomandoOrden());
     }
 
+    /**
+     * Indica que primero se debe llamar al robot para ordenar una pizza.
+     */
     @Override
     public void ordenarPizza(Pizza pizza){
         System.out.println("Robotcin está planchando oreja, debe llamarlo primero.");
     }
 
+     /**
+     * Indica que primero se debe llamar al robot para ordenar un helado.
+     */
     @Override
     public void ordenarHelado(Helado helado){
         System.out.println("Robotcin está haciendo la mimición, debe llamarlo primero.");
     }
-
 
     /**
      * Indica que no hay ninguna orden que confirmar mientras el robot 
@@ -54,6 +59,10 @@ public class EstadoDormido implements EstadoRobot{
         System.out.println("No hay ninguna orden que cancelar. Robotcin está durmiendo. Para pedir algo primero debes llamarlo");
     }
     
+    /**
+     * Indica que no hay ninguna orden que preparar porque primero se debe
+     * despertar al robot.
+     */
     @Override
     public void prepararOrden(){
         System.out.println("Robotcin se está echando una pestañita, debe llamarlo primero.");

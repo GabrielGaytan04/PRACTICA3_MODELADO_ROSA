@@ -28,11 +28,21 @@ public class EstadoEsperando implements EstadoRobot{
         System.out.println("Robotcin ya tiene tu orden lista. Debes recojerla.");
     }
 
+    /**
+     * Indica que no se puede ordenar una pizza pues
+     * el robot está ocupado preparando la orden
+     * y no puede atender nuevas llamadas.
+     */
     @Override
     public void ordenarPizza(Pizza pizza){
         System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
     }
 
+    /**
+     * Indica que no se puede ordenar una helado pues
+     * el robot está ocupado preparando la orden
+     * y no puede atender nuevas llamadas.
+     */
     @Override
     public void ordenarHelado(Helado helado){
         System.out.println("Robotcin está ocupado, no puede tomar órdenes.");
@@ -54,7 +64,10 @@ public class EstadoEsperando implements EstadoRobot{
     @Override public void cancelar(){
         System.out.println("No se puede cancelar después de haber confirmado.");
     }
-    
+
+     /**
+     * Indica que ya se termino de preparar la orden.
+     */
     @Override
     public void prepararOrden(){
         System.out.println("La orden ya fue preparada, solicite la entrega.");
@@ -64,7 +77,7 @@ public class EstadoEsperando implements EstadoRobot{
      * Indica que su orden ya se le será entregada.
      */
     @Override public void entregar(){
-        System.out.println("Orden entregada, Robotcin ya se va a echarse un coyotito.");
+        System.out.println("Orden entregada, Robotcin ya va a echarse un coyotito.");
         robot.setPizza(null);
         robot.setHelado(null);
         robot.actualizarEstado(robot.getDormido());
