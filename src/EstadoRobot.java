@@ -16,10 +16,15 @@ public interface EstadoRobot {
      */
     void llamar();
 
+    /**
+     * Indica que se va a ordenar una pizza.
+     */
     void ordenarPizza(Pizza pizza);
 
+    /**
+     * Indica que se va a ordenar un helado.
+     */
     void ordenarHelado(Helado helado);
-
 
     /**
      * Confirma la orden actual del cliente.
@@ -33,6 +38,9 @@ public interface EstadoRobot {
      */
     void cancelar();
 
+    /**
+     * Indica que se va a preparar la orden del ciente.
+     */
     void prepararOrden();
 
     /**
