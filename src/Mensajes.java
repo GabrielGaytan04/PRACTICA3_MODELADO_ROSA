@@ -35,7 +35,7 @@ public class Mensajes {
         System.out.println("3. CONFIRMAR ORDEN");
         System.out.println("4. CANCELAR ORDEN");
         System.out.println("5. RECIBIR SU ORDEN");
-        System.out.println("6. SALIR");
+        System.out.println("0. SALIR");
     }
 
     /**
@@ -47,7 +47,7 @@ public class Mensajes {
         System.out.println("1. SOLO PIZZA");
         System.out.println("2. SOLO HELADO");
         System.out.println("3. PIZZA Y HELADO");
-        System.out.println("4. SALIR");
+        System.out.println("4. IR AL MENU PRINCIPAL");
     }
 
     /**

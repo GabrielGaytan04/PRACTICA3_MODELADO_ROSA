@@ -59,17 +59,36 @@ public class Main {
 
                 case 3:
 					Mensajes.limpiarPantalla();
+					if (robot.getEstado() != robot.getTomandoOrden()) {
+        				System.out.println("No hay ninguna orden que confirmar.");
+       					break;
+				    }
+					if (robot.getPizza() == null && robot.getHelado() == null) {
+        				System.out.println("No puedes confirmar una orden vacía, debes ordenar algo primero.");
+        				break;
+    				}
                     robot.confirmar();
                     break;
 
                 case 4:
 					Mensajes.limpiarPantalla();
+					if (robot.getEstado() != robot.getTomandoOrden()) {
+        				System.out.println("No hay ninguna orden que cancelar.");
+        				break;
+    				}
+					 if (robot.getPizza() == null && robot.getHelado() == null) {
+        				System.out.println("No hay ningún producto ordenado para cancelar.");
+        				break;
+    				}
                     robot.cancelar();
                     break;
 
                 case 5:
 					Mensajes.limpiarPantalla();
-					Mensajes.mostrarTicket(robot.getPizza(), robot.getHelado());
+					if (robot.getEstado() != robot.getEsperando()) {
+        				System.out.println("No hay ninguna orden lista para entregar.");
+        				break;
+   					}
                     robot.entregar();
                     break;
 
