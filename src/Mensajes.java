@@ -49,7 +49,6 @@ public class Mensajes {
         System.out.println("1. SOLO PIZZA");
         System.out.println("2. SOLO HELADO");
         System.out.println("3. PIZZA Y HELADO");
-        System.out.println("4. IR AL MENU PRINCIPAL");
     }
 
     /**
