@@ -69,14 +69,16 @@ public class Main {
 
                 case 4:
                     Mensajes.limpiarPantalla();
-                    if (robot.getEstado() != robot.getTomandoOrden()) {
-                        System.out.println("No hay ninguna orden que cancelar.");
-                        break;
-                    }
+                    
                     if (robot.getPizza() == null && robot.getHelado() == null) {
                         System.out.println("No hay ningún producto ordenado para cancelar.");
                         break;
                     }
+                    if (robot.getEstado() != robot.getTomandoOrden()) {
+                        System.out.println("No es posible cancelar.");
+                        break;
+                    }
+
                     robot.cancelar();
                     break;
 

@@ -26,7 +26,7 @@ public class DecoradorManguitos extends DecoradorHelado{
      */
     @Override
     public double getPrecio() { 
-        return helado.getPrecio() + 877.4; 
+        return helado.getPrecio() + 877.00; 
     }
 
     /**

@@ -11,7 +11,7 @@ public class HeladoChocolate implements Helado{
      */
     public HeladoChocolate(){
         this.sabor = "chocolate";
-        this.precio = 0;
+        this.precio = 873.00;
     }
 
 

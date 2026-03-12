@@ -18,7 +18,7 @@ public class HeladoVainilla implements Helado{
      */
     public HeladoVainilla(){
         this.sabor = "chocolate";
-        this.precio = 0;
+        this.precio = 762.00;
     }
 
 
