@@ -105,19 +105,20 @@ public class Mensajes {
     }
 
     /**
-     * Muestra el menú de toppings disponibles para el helado.
-     */
-    public static void menuToppings() {
+    * Muestra el menú de toppings disponibles para el helado.
+    * @param contadorToppings arreglo con la cantidad de cada topping agregado.
+    */
+    public static void menuToppings(int[] contadorToppings) {
         System.out.println("\n--------------------------------------------------------------");
         System.out.println("SELECCIONA TUS TOPPINGS (MÁXIMO 3 DE CADA UNO)");
-        System.out.println("1. GOMITAS DE GUSANO");
-        System.out.println("2. GOMITAS DE PANDA");
-        System.out.println("3. GOMITAS DE ARO");
-        System.out.println("4. CHISPAS DE CHOCOLATE");
-        System.out.println("5. MALVAVISCOS");
-        System.out.println("6. FRESITAS");
-        System.out.println("7. MANGUITOS");
-        System.out.println("8. KIWIS");
+        System.out.println("1. GOMITAS DE GUSANO " + contadorToppings[0] + "/3");
+        System.out.println("2. GOMITAS DE PANDA " + contadorToppings[1] + "/3");
+        System.out.println("3. GOMITAS DE ARO " + contadorToppings[2] + "/3");
+        System.out.println("4. CHISPAS DE CHOCOLATE " + contadorToppings[3] + "/3");
+        System.out.println("5. MALVAVISCOS " + contadorToppings[4] + "/3");
+        System.out.println("6. FRESITAS " + contadorToppings[5] + "/3");
+        System.out.println("7. MANGUITOS " + contadorToppings[6] + "/3");
+        System.out.println("8. KIWIS " + contadorToppings[7] + "/3");
         System.out.println("0. TERMINAR DE AGREGAR");
     }
 

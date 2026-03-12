@@ -28,8 +28,20 @@ public class Main {
 
                 case 2:
                     Mensajes.limpiarPantalla();
-                    if (robot.getEstado() != robot.getTomandoOrden()) {
+                    if (robot.getEstado() == robot.getDormido()) {
                         System.out.println("Debes llamar al robot primero.");
+                         break;
+                    }
+                    if (robot.getEstado() == robot.getPreparando()) {
+                         System.out.println("Robotcin está ocupado preparando tu orden.");
+                         break;
+                    }
+                    if (robot.getEstado() == robot.getEsperando()) {
+                         System.out.println("Ya tienes una orden lista para recoger.");
+                         break;
+                    }
+                    if (robot.getPizza() != null || robot.getHelado() != null) {
+                        System.out.println("Ya tienes productos en tu orden, confirma o cancela antes de ordenar de nuevo.");
                         break;
                     }
                     Mensajes.menuProductos();
@@ -52,6 +64,7 @@ public class Main {
                             robot.ordenarHelado(helado);
                         }
                     }
+                    System.out.println("\nProductos agregados a tu orden. Selecciona 'Confirmar orden' para continuar.");
                     break;
 
                 case 3:
@@ -69,7 +82,6 @@ public class Main {
 
                 case 4:
                     Mensajes.limpiarPantalla();
-                    
                     if (robot.getPizza() == null && robot.getHelado() == null) {
                         System.out.println("No hay ningún producto ordenado para cancelar.");
                         break;
@@ -78,7 +90,6 @@ public class Main {
                         System.out.println("No es posible cancelar.");
                         break;
                     }
-
                     robot.cancelar();
                     break;
 
@@ -197,16 +208,14 @@ public class Main {
 
         do {
             Mensajes.limpiarPantalla();
-            Mensajes.menuToppings();
+            Mensajes.menuToppings(contadorToppings);
             opcionTopping = leerEntero(scanner, 0, 8);
-            Mensajes.limpiarPantalla();
 
             if (opcionTopping == 0) break;
 
             int indice = opcionTopping - 1;
 
             if (contadorToppings[indice] >= 3) {
-                System.out.println("Ya agregaste 3 de este ingrediente, elige otro.");
                 continue;
             }
 
